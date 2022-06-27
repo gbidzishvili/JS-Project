@@ -1,6 +1,7 @@
 import { Subject, LMS } from "./lms.mjs";
 import { Teachers } from "./Teachers.mjs";
 import { Pupils } from "./Pupils.mjs";
+import { Groups } from "./Groups.mjs";
 const history = new Subject({
   title: "History",
   lessons: 24,
@@ -20,7 +21,7 @@ const Biology = new Subject({
 // lms.remove(history); // should remove subject from lms
 // console.log(lms.verify(history));
 // lms.readAll();
-
+// /////////////////////////////////////////////////////
 let teacher1 = {
   name: { first: "giorgi", last: "bidz" },
   dateOfBirth: "07-22-2000",
@@ -97,9 +98,11 @@ const teacherId = teachers.add(teacher1);
 // update profile//////////////////
 // const updatedProfile = {
 //   name: { first: "ana", last: "jgenti" },
+//   sex: "female",
 // };
 // const teacherIdUpd = teachers.update(teacherId, updatedProfile);
 // console.log(teacherIdUpd);
+// /////////////////////////////////////////////////////
 let pupil1 = {
   name: { first: "guram", last: "guramishvili" },
   dateOfBirth: "11-31-1975",
@@ -115,8 +118,24 @@ let pupil1 = {
   ],
   sex: "male", // male or female
 };
+let pupil2 = {
+  name: { first: "mariam", last: "vashakhmadze" },
+  dateOfBirth: "11-31-1975",
+  phones: [
+    {
+      phone: "557 84 84 96",
+      primary: true,
+    },
+    {
+      phone: "555 77 55 33",
+      primary: false,
+    },
+  ],
+  sex: "female", // male or female
+};
 const pupils = new Pupils();
 const pupil = pupils.add(pupil1);
+const pupil_2 = pupils.add(pupil2);
 // console.log(pupil.id);
 // // will return Pupils data including pupil's id
 // console.log(pupils.read(pupil.id));
@@ -129,3 +148,31 @@ const pupil = pupils.add(pupil1);
 // // will remove pupil
 // pupils.remove(pupil.id);
 // console.log(pupils.read(pupil.id));
+// //////////////////////////////////////////////////////////
+
+const room = 236;
+const groups = new Groups();
+// Create a new group. add methods takes integer as a parameter. returns id of group
+// const groupId = groups.add(room);
+// const groupId2 = groups.add(700);
+// // console.log(groupId);
+// // Add this pupil to this group
+// groups.addPupil(groupId, pupil1);
+// groups.addPupil(groupId, pupil2);
+// // Remove this pupil from this group
+// groups.removePupil(groupId, pupil1.id);
+// // Update room for this group
+// groups.update(groupId, {
+//   room: 857,
+// });
+
+// // Read information about group
+// groups.read(groupId);
+// // {
+// //   id: 'JEF5H43H',
+// //   room: 237,
+// //   pupils:[], // array of pupils.
+// // }
+
+// // It will return array of groups
+// groups.readAll();
