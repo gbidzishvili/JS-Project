@@ -34,4 +34,7 @@ export class Teachers {
     // console.log(updated);
     return updated;
   }
+  remove(teacherId) {
+    map.delete(teacherId);
+  }
 }
