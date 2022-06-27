@@ -1,3 +1,9 @@
+export function validateRoom(room) {
+  if (typeof room !== "number") throw new Error("room's type must be number");
+}
+export function validateId(id) {
+  if (typeof id !== "string") throw new Error("id's type must be string");
+}
 export function validateTitle(title) {
   if (typeof title !== "string") throw new Error("title's type must be string");
 }
@@ -54,4 +60,10 @@ export function validatedescription(description) {
   if (typeof description !== "string" && description !== undefined) {
     throw new Error("description must be string");
   }
+}
+export function validatePupil(pupil) {
+  validateName(pupil.name);
+  validateDateOfBirth(pupil.dateOfBirth);
+  validatePhones(pupil.phones);
+  validateSex(pupil.sex);
 }
