@@ -5,10 +5,12 @@ export class Gradebooks {
     this.groups = groups;
     this.teachers = teachers;
     this.lms = lms;
+    this.map = map;
   }
   add(groupid) {
     validateId(groupid);
     map.set(groupid, []);
+    return map.get(groupid);
   }
   clear(und) {
     if (und !== undefined) throw new Error("clear must be empty");
@@ -57,9 +59,11 @@ export class Gradebooks {
     validateId(gradebookId);
     validateId(pupilId);
     // console.log(map.get(gradebookId));
+    let readObj;
     map.get(gradebookId).forEach((value, key) => {
-      if (value.pupilId === pupilId) console.log(value.body);
+      if (value.pupilId === pupilId) readObj = value.body;
     });
+    return readObj;
   }
   readAll(gradebookId) {
     validateId(gradebookId);
@@ -68,7 +72,7 @@ export class Gradebooks {
       // console.log(value.body);
       objArray.push(value.body);
     });
-    console.log(objArray);
+    // console.log(objArray);
     return objArray;
   }
 }
