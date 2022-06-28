@@ -155,6 +155,7 @@ const room = 236;
 const groups = new Groups();
 // Create a new group. add methods takes integer as a parameter. returns id of group
 const groupId = groups.add(room);
+console.log(groupId);
 // const groupId2 = groups.add(700);
 // console.log(groupId);
 // // Add this pupil to this group
@@ -186,6 +187,7 @@ const teacherId1 = teacherId;
 const gradebooks = new Gradebooks(groups, teachers, lms);
 // Create a new gradebook.
 const gradebook = gradebooks.add(groupId);
+// console.log(gradebook);
 let gradebookId = groupId;
 // console.log(groupId);
 // // Destroy all data inside this gradebook
