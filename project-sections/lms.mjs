@@ -43,7 +43,7 @@ export class LMS {
     map.forEach((value, key, ownMap) => {
       subjectsArray.push(value);
     });
-    console.log(subjectsArray);
+    // console.log(subjectsArray);
     return subjectsArray;
   }
 }
