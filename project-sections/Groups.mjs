@@ -1,8 +1,4 @@
-import {
-  validatePupil,
-  validateId,
-  validateRoom,
-} from "./validations.mjs";
+import { validatePupil, validateId, validateRoom } from "./validations.mjs";
 const room = 236;
 const map = new Map();
 export class Groups {
@@ -51,7 +47,8 @@ export class Groups {
     map.forEach((value, key, obj) => {
       arr.push(value);
     });
-    console.log(arr);
+    // console.log(arr);
+    return arr;
   }
 }
 
