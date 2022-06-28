@@ -1,7 +1,7 @@
 import { validatePupil, validateId, validateRecord } from "./validations.mjs";
-const map = new Map();
 export class Gradebooks {
   constructor(groups, teachers, lms) {
+    const map = new Map();
     this.groups = groups;
     this.teachers = teachers;
     this.lms = lms;
@@ -9,16 +9,16 @@ export class Gradebooks {
   }
   add(groupid) {
     validateId(groupid);
-    map.set(groupid, []);
-    return map.get(groupid);
+    this.map.set(groupid, []);
+    return this.map.get(groupid);
   }
   clear(und) {
     if (und !== undefined) throw new Error("clear must be empty");
-    map.clear();
-    // console.log(map);
+    this.map.clear();
+    // console.log(this.map);
   }
   addRecord(gradebookId, record) {
-    // console.log(map);
+    // console.log(this.map);
     validateId(gradebookId);
     validateRecord(record);
     let student = "";
@@ -31,7 +31,7 @@ export class Gradebooks {
         if (value.id === record.pupilId) {
           student = `${value.name.first} ${value.name.last}`;
         }
-        // map.set(gradebookId, { name: student });
+        // this.map.set(gradebookId, { name: student });
       });
     }
     teacher = `${this.teachers.read(record.teacherId).name.first} ${
@@ -51,16 +51,16 @@ export class Gradebooks {
       },
     };
     // console.log(obj);
-    map.get(gradebookId).push(obj);
+    this.map.get(gradebookId).push(obj);
 
-    // console.log(map.get(gradebookId)[0]);
+    // console.log(this.map.get(gradebookId)[0]);
   }
   read(gradebookId, pupilId) {
     validateId(gradebookId);
     validateId(pupilId);
-    // console.log(map.get(gradebookId));
+    // console.log(this.map.get(gradebookId));
     let readObj;
-    map.get(gradebookId).forEach((value, key) => {
+    this.map.get(gradebookId).forEach((value, key) => {
       if (value.pupilId === pupilId) readObj = value.body;
     });
     return readObj;
@@ -68,7 +68,7 @@ export class Gradebooks {
   readAll(gradebookId) {
     validateId(gradebookId);
     const objArray = [];
-    map.get(gradebookId).forEach((value, key, ownMap) => {
+    this.map.get(gradebookId).forEach((value, key, ownMap) => {
       // console.log(value.body);
       objArray.push(value.body);
     });
