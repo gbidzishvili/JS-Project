@@ -51,6 +51,7 @@ export class Teachers {
   }
   remove(teacherId) {
     validateId(teacherId);
+    // console.log(map.get(teacherId));
     map.delete(teacherId);
   }
 }
