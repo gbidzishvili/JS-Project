@@ -201,7 +201,8 @@ const record = {
 };
 gradebooks.addRecord(gradebookId, record);
 // // Read information about oliver results
-// const oliver = gradebooks.read(gradebookId, pupilId);
+const oliver = gradebooks.read(gradebookId, pupilId);
+console.log(oliver);
 // {
 //   name: 'Oliver Black',
 //   records: [
