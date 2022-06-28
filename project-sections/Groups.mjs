@@ -2,7 +2,9 @@ import { validatePupil, validateId, validateRoom } from "./validations.mjs";
 const room = 236;
 const map = new Map();
 export class Groups {
-  constructor() {}
+  constructor() {
+    this.map = map;
+  }
   add(room) {
     validateRoom(room);
     const groupId = Math.random().toString().slice(2);
