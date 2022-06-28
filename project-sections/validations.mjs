@@ -12,6 +12,8 @@ export function validateLessons(lessons) {
     throw new Error("lessons's type must be number");
 }
 export function validateName(name) {
+  if (typeof name !== "object" || Array.isArray(name))
+    throw new Error("name must be object");
   if (typeof name.first !== "string")
     throw new Error("firstname must be string");
   if (typeof name.last !== "string") throw new Error("lastname must be string");
@@ -24,6 +26,7 @@ export function validateDateOfBirth(dateOfBirth) {
     throw new Error("format of date must be mm-dd-yy(1900-20**)");
 }
 export function validateEmails(emails) {
+  if (!Array.isArray(emails)) throw new Error("emails must be arrary");
   if (emails.length !== 0) {
     emails.forEach((value, key, arr) => {
       if (key === 0 && value.primary !== true)
@@ -34,6 +37,7 @@ export function validateEmails(emails) {
   }
 }
 export function validatePhones(phones) {
+  if (!Array.isArray(phones)) throw new Error("phones must be arrary");
   if (phones.length !== 0) {
     phones.forEach((value, key, arr) => {
       if (key === 0 && value.primary !== true)
@@ -49,6 +53,7 @@ export function validateSex(sex) {
     throw new Error("sex must be male or female");
 }
 export function validateSubject(subjects) {
+  if (!Array.isArray(subjects)) throw new Error("subjects must be arrary");
   if (subjects.length !== 0) {
     subjects.forEach((value, key, arr) => {
       if (typeof value.subject !== "string")
@@ -67,4 +72,14 @@ export function validatePupil(pupil) {
   validatePhones(pupil.phones);
   validateSex(pupil.sex);
 }
-export function validateRecord(record) {}
+export function validateRecord(record) {
+  if (typeof record !== "object" || Array.isArray(record))
+    throw new Error("record must be object");
+  validateId(record.pupilId);
+  validateId(record.teacherId);
+  validateId(record.subjectId);
+  if (typeof record.lesson !== "number")
+    throw new Error("lesson's type must be nuber");
+  if (typeof record.mark !== "number")
+    throw new Error("mark's type must be nuber");
+}
