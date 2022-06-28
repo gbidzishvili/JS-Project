@@ -21,7 +21,8 @@ lms.add(history); // should add subject to lms
 lms.add(Biology); // should add subject to lms
 // lms.remove(history); // should remove subject from lms
 // console.log(lms.verify(history));
-// lms.readAll();
+// console.log(lms.verify(Biology));
+// console.log(lms.readAll());
 // /////////////////////////////////////////////////////
 let teacher1 = {
   name: { first: "Elizabeth", last: "Holms" },
@@ -91,18 +92,19 @@ let teacher2 = {
 const teachers = new Teachers();
 const teacherId = teachers.add(teacher1);
 const teacher2Id = teachers.add(teacher2);
-// console.log(teachers.read(teacherId));
-// teachers.remove(teacherId);
-// console.log(teachers.read(teacherId));
+// console.log(teacherId, teac/
+// console.log(teachers.read(teacher2Id));
 // teachers.read(teacherId);
 // teachers.read(teacher2Id);
-// update profile//////////////////
+
+// update Teachers profile//////////////////
 // const updatedProfile = {
 //   name: { first: "ana", last: "jgenti" },
 //   sex: "female",
 // };
 // const teacherIdUpd = teachers.update(teacherId, updatedProfile);
 // console.log(teacherIdUpd);
+// teachers.remove(teacher2Id);
 // /////////////////////////////////////////////////////
 let pupil1 = {
   name: { first: "guram", last: "guramishvili" },
@@ -155,7 +157,7 @@ const room = 236;
 const groups = new Groups();
 // Create a new group. add methods takes integer as a parameter. returns id of group
 const groupId = groups.add(room);
-console.log(groupId);
+// console.log(groupId);
 // const groupId2 = groups.add(700);
 // console.log(groupId);
 // // Add this pupil to this group
@@ -169,16 +171,15 @@ groups.addPupil(groupId, pupil2);
 // });
 
 // // Read information about group
-// groups.read(groupId);
+// console.log(groups.read(groupId));
 // // {
 // //   id: 'JEF5H43H',
 // //   room: 237,
 // //   pupils:[], // array of pupils.
 // // }
 
-// // It will return array of groups
-
-// console.log(groups.readAll()[0].pupils);
+// // readAll will return array of groups
+// console.log(groups.readAll());
 // ///////////////////////////////////////////////////////
 const pupilId = pupil2.id;
 // console.log(pupilId,);
@@ -194,17 +195,17 @@ let gradebookId = groupId;
 // gradebooks.clear();
 
 // // shceme of a record. all fields are required.
-const record = {
-  pupilId: pupilId,
-  teacherId: teacherId,
-  subjectId: history.id,
-  lesson: 1,
-  mark: 9,
-};
+// const record = {
+//   pupilId: pupilId,
+//   teacherId: teacherId,
+//   subjectId: history.id,
+//   lesson: 1,
+//   mark: 9,
+// };
 gradebooks.addRecord(gradebookId, record);
 // // Read information about oliver results
-const oliver = gradebooks.read(gradebookId, pupilId);
-console.log(oliver);
+// const oliver = gradebooks.read(gradebookId, pupilId);
+// console.log(oliver);
 // {
 //   name: 'Oliver Black',
 //   records: [
@@ -218,4 +219,5 @@ console.log(oliver);
 // }
 
 // // Read information about all students in this gradebook
-const students = gradebooks.readAll(gradebookId); // It will return the array of objects
+// const students = gradebooks.readAll(gradebookId); // It will return the array of objects
+// console.log(students);
