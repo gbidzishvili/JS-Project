@@ -35,13 +35,14 @@ export class Groups {
     const spreaded = { ...obj };
     const updated = { ...old, ...spreaded };
     this.map.set(groupId, updated);
-    console.log(updated);
+    // console.log(updated);
     return updated;
   }
   read(groupId) {
     validateId(groupId);
     // console.log(this.map.get(groupId));
-    this.map.get(groupId);
+
+    return this.map.get(groupId);
   }
   readAll(und) {
     if (und !== undefined) throw new Error("readAll must be empty");
