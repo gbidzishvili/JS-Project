@@ -67,3 +67,4 @@ export function validatePupil(pupil) {
   validatePhones(pupil.phones);
   validateSex(pupil.sex);
 }
+export function validateRecord(record) {}
