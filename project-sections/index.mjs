@@ -158,11 +158,10 @@ const groups = new Groups();
 // Create a new group. add methods takes integer as a parameter. returns id of group
 const groupId = groups.add(room);
 // console.log(groupId);
-// const groupId2 = groups.add(700);
+const groupId2 = groups.add(700);
 // console.log(groupId);
 // // Add this pupil to this group
 groups.addPupil(groupId, pupil1);
-groups.addPupil(groupId, pupil2);
 // // Remove this pupil from this group
 // groups.removePupil(groupId, pupil1.id);
 // // Update room for this group
@@ -202,7 +201,7 @@ let gradebookId = groupId;
 //   lesson: 1,
 //   mark: 9,
 // };
-gradebooks.addRecord(gradebookId, record);
+// gradebooks.addRecord(gradebookId, record);
 // // Read information about oliver results
 // const oliver = gradebooks.read(gradebookId, pupilId);
 // console.log(oliver);

@@ -14,6 +14,9 @@ export class Groups {
   addPupil(groupId, pupil) {
     validatePupil(pupil);
     validateId(groupId);
+    if (this.map.get(groupId).id === undefined) {
+      throw new Error("groupId is not defined");
+    }
     this.map.get(groupId).pupils.push(pupil);
   }
   removePupil(groupId, pupilId) {
@@ -28,9 +31,12 @@ export class Groups {
     this.map.get(groupId).pupils = remains;
   }
   update(groupId, obj) {
+    if (this.map.get(groupId).id === undefined) {
+      throw new Error("groupId is not defined");
+    }
     validateId(groupId);
     if (obj.room !== undefined) validateRoom(obj.room);
-    validateRoom(obj.room);
+    // validateRoom(obj.room);
     const old = { ...this.map.get(groupId) };
     const spreaded = { ...obj };
     const updated = { ...old, ...spreaded };
