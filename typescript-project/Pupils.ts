@@ -11,7 +11,6 @@ type PupilT = {
   }[];
 
   sex: string; // male OR female
-  // description: string;
   id?: string;
 };
 interface intAdd {
